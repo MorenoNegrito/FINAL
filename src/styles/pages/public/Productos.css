@@ -1,0 +1,121 @@
+/* src/styles/pages/public/Productos.css */
+.productos-container {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+    padding: 2rem 0;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Estados de carga */
+.productos-loading,
+.productos-error,
+.productos-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    gap: 1.5rem;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #E1E8ED;
+    border-top-color: #005F99;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.productos-loading p,
+.productos-error p,
+.productos-empty p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.productos-error {
+    background: linear-gradient(135deg, #FEF2F2 0%, #FFFFFF 100%);
+    border-radius: 16px;
+    padding: 3rem;
+    margin: 2rem;
+}
+
+.productos-error h2 {
+    color: #dc2626;
+    margin-bottom: 1rem;
+}
+
+.btn-reintentar {
+    background: linear-gradient(135deg, #005F99 0%, #0066FF 100%);
+    color: #FFFFFF;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-reintentar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 95, 153, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+.productos-info {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.productos-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.productos-empty h3 {
+    color: #1A1A1A;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.productos-empty p {
+    color: #666;
+}

@@ -1,0 +1,135 @@
+/* Carrito.css - VERSIÓN FINAL */
+.carrito-page {
+  min-height: 65vh; /* ✅ Altura mínima para empujar footer */
+  padding: 2rem 1rem;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+}
+
+.carrito-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.carrito-container > h1 {
+  color: #1A1A1A;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+/* Carrito Vacío */
+.carrito-vacio {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  min-height: 450px; /* ✅ Altura mínima cuando está vacío */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.carrito-vacio::before {
+  content: '🛒';
+  font-size: 5rem;
+  opacity: 0.3;
+  display: block;
+}
+
+.carrito-vacio h2 {
+  color: #1A1A1A;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.carrito-vacio p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Items del Carrito */
+.carrito-items {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Resumen */
+.carrito-resumen {
+  background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid #E1E8ED;
+}
+
+.resumen-total {
+  padding: 1.5rem 0;
+  border-bottom: 2px solid #E1E8ED;
+  margin-bottom: 1rem;
+}
+
+.resumen-total h3 {
+  color: #005F99;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carrito-page {
+    min-height: 60vh;
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .carrito-container > h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .carrito-vacio {
+    padding: 4rem 1.5rem;
+    min-height: 400px;
+  }
+  
+  .carrito-items {
+    padding: 1.5rem;
+  }
+  
+  .carrito-resumen {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrito-page {
+    padding: 1rem 0.25rem;
+  }
+  
+  .carrito-container {
+    padding: 0 0.5rem;
+  }
+  
+  .carrito-container > h1 {
+    font-size: 1.8rem;
+  }
+  
+  .carrito-vacio {
+    padding: 3rem 1rem;
+    min-height: 350px;
+  }
+  
+  .resumen-total h3 {
+    font-size: 1.6rem;
+  }
+}

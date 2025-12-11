@@ -1,0 +1,121 @@
+/* Contacto.css - Mismo estilo que Nosotros.css */
+.contacto-page {
+    padding: 2rem 1rem;
+    background-color: #F5F7FA; /* Blanco Humo */
+    min-height: calc(100vh - 80px - 60px);
+}
+
+/* Títulos - Igual que Nosotros */
+.titulo-pagina {
+    color: #0066FF; /* Azul Eléctrico */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+.subtitulo-seccion {
+    color: #0066FF; /* Azul Eléctrico */
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+/* Sección Principal - Igual que Nosotros */
+.seccion-contacto {
+    margin-bottom: 4rem;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Sección Información Adicional - Igual que secciones de Nosotros */
+.seccion-informacion-adicional {
+    margin-bottom: 4rem;
+    padding: 3rem 0;
+    background-color: #FFFFFF; /* Blanco Puro */
+}
+
+.informacion-adicional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Las Cards usan los mismos estilos que en Nosotros porque usan CardInformacion */
+/* No necesitamos estilos adicionales ya que heredan de CardInformacion.css */
+
+/* Estilos específicos para el contenido de contacto */
+.contacto-directo {
+    text-align: left;
+    width: 100%;
+}
+
+.contacto-directo p {
+    margin: 0.8rem 0;
+    color: #1A1A1A;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.contacto-directo strong {
+    color: #0066FF; /* Azul Eléctrico */
+    font-weight: 600;
+}
+
+/* Responsive - Igual que Nosotros */
+@media (max-width: 768px) {
+    .contacto-page {
+        padding: 1rem 0.5rem;
+    }
+    
+    .titulo-pagina {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .subtitulo-seccion {
+        font-size: 1.5rem;
+    }
+    
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .informacion-adicional-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .contacto-directo {
+        text-align: center;
+    }
+    
+    .contacto-directo p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacto-grid,
+    .informacion-adicional-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contacto-directo p {
+        font-size: 0.85rem;
+    }
+}

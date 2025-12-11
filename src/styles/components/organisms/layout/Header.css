@@ -1,0 +1,38 @@
+/* Header.css - DISEÑO PREMIUM */
+.header-principal {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(90deg, #005F99 0%, #0066FF 50%, #FF8800 100%) 1;
+  transition: all 0.3s ease;
+}
+
+.header-principal.scrolled {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Efecto de sombra interior para profundidad */
+.header-principal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    rgba(0, 95, 153, 0.1) 0%, 
+    rgba(0, 102, 255, 0.1) 50%, 
+    rgba(255, 136, 0, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .header-principal {
+    position: relative;
+  }
+}

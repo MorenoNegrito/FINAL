@@ -1,0 +1,118 @@
+/* Registro.css - CORREGIDO con colores del sitio */
+.registro-page {
+  min-height: calc(100vh - 120px);
+  background: linear-gradient(180deg, var(--color-bg-white) 0%, var(--color-bg-gray) 100%);
+  padding: var(--space-3xl) var(--space-md);
+}
+
+.registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 var(--space-md);
+}
+
+.registro-card {
+  background: var(--color-bg-white);
+  padding: var(--space-2xl);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 100%;
+}
+
+.registro-card h2 {
+  font-family: inherit;
+  text-align: center;
+  color: var(--color-primary);
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  margin-bottom: var(--space-xl);
+}
+
+.registro-card form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.registro-card label {
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: var(--font-base);
+}
+
+.registro-card input,
+.registro-card select {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  border: 2px solid var(--color-border);
+  font-size: var(--font-base);
+  transition: all var(--transition-base);
+  font-family: inherit;
+}
+
+.registro-card input:focus,
+.registro-card select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 95, 153, 0.1);
+}
+
+.btn-registrar {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-bg-white);
+  padding: var(--space-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: var(--font-base);
+  font-weight: 600;
+  margin-top: var(--space-md);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-registrar:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary-lg);
+}
+
+.btn-registrar:active {
+  transform: translateY(0);
+}
+
+.mensaje-error {
+  color: var(--color-error);
+  font-size: var(--font-sm);
+  margin-top: var(--space-md);
+  text-align: center;
+  padding: var(--space-md);
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-error);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .registro-page {
+    padding: var(--space-xl) var(--space-md);
+  }
+  
+  .registro-card {
+    padding: var(--space-xl);
+  }
+  
+  .registro-card h2 {
+    font-size: var(--font-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .registro-card {
+    padding: var(--space-lg);
+  }
+}

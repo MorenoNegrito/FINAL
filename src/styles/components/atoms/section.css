@@ -1,0 +1,234 @@
+/* Input.css - Sistema Unificado Mejorado */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.input-group label {
+  font-weight: 600;
+  color: #1A1A1A;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  letter-spacing: 0.3px;
+}
+
+.input-group label .required {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+/* ✅ Inputs base */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #E1E8ED;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: #005F99;
+  box-shadow: 0 2px 8px rgba(0, 95, 153, 0.1);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #005F99;
+  box-shadow: 0 0 0 4px rgba(0, 95, 153, 0.1);
+  background: #FFFFFF;
+}
+
+.form-input::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+.form-input:disabled,
+.form-select:disabled,
+.form-textarea:disabled {
+  background: #F8F9FA;
+  cursor: not-allowed;
+  opacity: 0.6;
+  border-color: #E1E8ED;
+}
+
+/* ✅ Estados de validación */
+.input-group.error .form-input,
+.input-group.error .form-select,
+.input-group.error .form-textarea {
+  border-color: #ef4444;
+  background: #FEF2F2;
+}
+
+.input-group.error .form-input:focus,
+.input-group.error .form-select:focus,
+.input-group.error .form-textarea:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+.input-group.success .form-input,
+.input-group.success .form-select,
+.input-group.success .form-textarea {
+  border-color: #10b981;
+  background: #F0FDF4;
+}
+
+.input-group.success .form-input:focus,
+.input-group.success .form-select:focus,
+.input-group.success .form-textarea:focus {
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+/* ✅ Mensajes de error y ayuda */
+.input-error-message {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 500;
+}
+
+.input-error-message::before {
+  content: '⚠';
+  font-size: 1rem;
+}
+
+.input-help-text {
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.input-success-message {
+  color: #10b981;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 500;
+}
+
+.input-success-message::before {
+  content: '✓';
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ✅ Textarea */
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* ✅ Select mejorado */
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  appearance: none;
+}
+
+/* ✅ Input con icono */
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon .form-input {
+  padding-left: 2.75rem;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.input-group.error .input-icon {
+  color: #ef4444;
+}
+
+.input-group.success .input-icon {
+  color: #10b981;
+}
+
+/* ✅ Checkbox y Radio */
+.form-checkbox,
+.form-radio {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  accent-color: #005F99;
+}
+
+.checkbox-label,
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.checkbox-label:hover,
+.radio-label:hover {
+  color: #005F99;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .input-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9rem;
+  }
+
+  .input-group label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .form-textarea {
+    min-height: 100px;
+  }
+}

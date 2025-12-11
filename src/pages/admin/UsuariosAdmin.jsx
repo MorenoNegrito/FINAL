@@ -1,0 +1,115 @@
+import React, { useEffect, useState } from 'react';
+// 1. IMPORTANTE: Usamos el servicio individual 'api/usuarios', no adminService
+import { getUsuarios, deleteUsuario } from '../../services/api/usuarios';
+import AdminTable from '../../components/organisms/AdminTable'; 
+import Button from '../../components/atoms/Button'; 
+import '../../styles/components/admin/AdminGlobal.css';
+
+const UsuariosAdmin = () => {
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        loadUsers();
+    }, []);
+
+    const loadUsers = async () => {
+        setLoading(true);
+        try {
+            // Llamada al servicio corregido
+            const data = await getUsuarios();
+            // Validación de array
+            const lista = Array.isArray(data) ? data : [];
+            setUsers(lista);
+        } catch (err) {
+            console.error("Error cargando usuarios:", err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleDelete = async (id) => {
+        if (window.confirm('¿Estás seguro de eliminar este usuario?')) {
+            try {
+                await deleteUsuario(id);
+                // Actualizamos la tabla visualmente
+                setUsers(prev => prev.filter(u => u.id !== id));
+                alert("Usuario eliminado correctamente");
+            } catch (err) {
+                console.error(err);
+                alert('Error al eliminar usuario');
+            }
+        }
+    };
+
+    // --- DEFINICIÓN DE COLUMNAS (Limpia y sin errores) ---
+    const columns = [
+        { 
+            header: 'ID', 
+            accessor: 'id',
+            render: (row) => <span style={{fontFamily:'monospace', fontSize:'0.8rem'}}>#{row.id}</span>
+        },
+        { 
+            header: 'Usuario', 
+            accessor: 'nombre',
+            render: (row) => (
+                <div>
+                    <strong>{row.nombre} {row.apellido}</strong>
+                </div>
+            )
+        },
+        { 
+            header: 'Email', 
+            accessor: 'email',
+            render: (row) => row.email || row.correo // Soporte para ambos nombres
+        },
+        { 
+            header: 'Rol', 
+            accessor: 'role',
+            render: (row) => {
+                // Normalizamos el rol
+                const role = (row.role || 'USER').toUpperCase();
+                
+                // Asignamos color según rol
+                let style = { background: '#e0f2fe', color: '#075985' }; // Default (User)
+                
+                if (role === 'ADMIN') {
+                    style = { background: '#dcfce7', color: '#166534' }; // Verde (Admin)
+                }
+
+                return (
+                    <span style={{
+                        padding: '4px 8px',
+                        borderRadius: '12px',
+                        fontSize: '0.75rem',
+                        fontWeight: 'bold',
+                        ...style
+                    }}>
+                        {role}
+                    </span>
+                );
+            }
+        }
+    ];
+
+    return (
+        <div className="admin-page">
+            <div className="admin-section-header" style={{display:'flex', justifyContent:'space-between'}}>
+                <h1>Gestión de Usuarios</h1>
+                <Button text="Recargar" onClick={loadUsers} variant="secondary" size="small"/>
+            </div>
+
+            <div className="admin-table-wrapper">
+                {loading ? <p style={{padding:'2rem'}}>Cargando usuarios...</p> : (
+                    <AdminTable 
+                        columns={columns} 
+                        data={users} 
+                        onDelete={handleDelete}
+                    />
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default UsuariosAdmin;

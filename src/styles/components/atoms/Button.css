@@ -1,0 +1,186 @@
+/* Button.css - Sistema Unificado Mejorado */
+.btn-general {
+  border: none;
+  border-radius: 10px;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn-general:focus-visible {
+  outline: 3px solid #005F99;
+  outline-offset: 2px;
+}
+
+.btn-general:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ✅ VARIANTE PRIMARY - Azul degradado */
+.btn-primary {
+  background: linear-gradient(135deg, #005F99 0%, #0066FF 100%);
+  color: #FFFFFF;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(0, 95, 153, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #004d7a 0%, #0052cc 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 95, 153, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ✅ VARIANTE SECONDARY - Blanco con borde */
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #005F99;
+  border: 2px solid #005F99;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #F8F9FA;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 95, 153, 0.2);
+}
+
+/* ✅ VARIANTE OUTLINE - Transparente con borde */
+.btn-outline {
+  background: transparent;
+  color: #1A1A1A;
+  border: 2px solid #E1E8ED;
+}
+
+.btn-outline:hover:not(:disabled) {
+  border-color: #005F99;
+  background: #F8F9FA;
+  color: #005F99;
+}
+
+/* ✅ VARIANTE SUCCESS - Verde */
+.btn-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #FFFFFF;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-success:hover:not(:disabled) {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* ✅ VARIANTE DANGER - Rojo */
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #FFFFFF;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* ✅ VARIANTE WARNING - Naranja */
+.btn-warning {
+  background: linear-gradient(135deg, #FF8800 0%, #ff6600 100%);
+  color: #FFFFFF;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(255, 136, 0, 0.3);
+}
+
+.btn-warning:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ff6600 0%, #e65c00 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 136, 0, 0.4);
+}
+
+/* ✅ Tamaños */
+.btn-small {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+
+.btn-medium {
+  padding: 0.875rem 1.75rem;
+  font-size: 0.95rem;
+  border-radius: 10px;
+}
+
+.btn-large {
+  padding: 1rem 2.25rem;
+  font-size: 1.05rem;
+  border-radius: 12px;
+}
+
+/* ✅ Ancho completo */
+.btn-full {
+  width: 100%;
+}
+
+/* ✅ Con icono solamente */
+.btn-icon {
+  padding: 0.875rem;
+  aspect-ratio: 1;
+  border-radius: 10px;
+}
+
+/* ✅ Efecto de ripple (opcional) */
+.btn-general::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-general:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn-general {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-large {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .btn-small {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+}

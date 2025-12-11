@@ -1,0 +1,246 @@
+/* CardCrearCuenta.css - Versión Mejorada con Animación */
+.card-promocional {
+    background: linear-gradient(135deg, #005F99 0%, #004080 100%);
+    padding: 4rem 2.5rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decoración de fondo animada */
+.card-promocional::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 60%
+    );
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Patrón de puntos decorativo */
+.card-promocional::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.3;
+}
+
+.card-promocional-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+}
+
+.card-promocional .titulo {
+    color: #FFFFFF;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    text-align: center;
+    width: 100%;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-promocional .descripcion {
+    color: #E1E8ED;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    font-weight: 300;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-accion-personalizado {
+    background: #FFFFFF;
+    border: 3px solid #FFFFFF;
+    color: #005F99;
+    font-weight: 700;
+    padding: 1.1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    display: inline-block;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de brillo en el botón */
+.btn-accion-personalizado::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-accion-personalizado:hover::before {
+    left: 100%;
+}
+
+.btn-accion-personalizado:hover {
+    background: #FF8800;
+    color: #FFFFFF;
+    border-color: #FF8800;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 
+        0 12px 35px rgba(255, 136, 0, 0.4),
+        0 0 30px rgba(255, 136, 0, 0.2);
+}
+
+.btn-accion-personalizado:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Features o beneficios (opcional) */
+.promocional-features {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    text-align: center;
+    max-width: 200px;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.feature-text {
+    color: #E1E8ED;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .card-promocional {
+        padding: 3.5rem 2rem;
+    }
+    
+    .card-promocional .titulo {
+        font-size: 2.4rem;
+    }
+    
+    .card-promocional .descripcion {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-promocional {
+        padding: 3rem 1.5rem;
+    }
+    
+    .card-promocional .titulo {
+        font-size: 2rem;
+    }
+    
+    .card-promocional .descripcion {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin-bottom: 2rem;
+    }
+    
+    .btn-accion-personalizado {
+        padding: 1rem 2.5rem;
+        font-size: 1.05rem;
+    }
+    
+    .promocional-features {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-promocional {
+        padding: 2.5rem 1rem;
+    }
+    
+    .card-promocional .titulo {
+        font-size: 1.7rem;
+    }
+    
+    .card-promocional .descripcion {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    
+    .btn-accion-personalizado {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.95rem 2rem;
+    }
+    
+    .promocional-features {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .feature-item {
+        max-width: 100%;
+    }
+}
