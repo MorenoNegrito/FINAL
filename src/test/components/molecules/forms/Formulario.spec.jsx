@@ -24,12 +24,15 @@ describe('Formulario Component', () => {
         expect(input).toBeTruthy();
     });
 
-    it('debe pasar el type al input', () => {
-        render(<Formulario subtitulo="Contraseña" type="password" />);
-        const input = screen.getByRole('textbox', { hidden: true }) || document.querySelector('input[type="password"]');
-        expect(input).toBeTruthy();
-        expect(input.getAttribute('type')).toBe('password');
-    });
+it('debe pasar el type al input', () => {
+    render(<Formulario subtitulo="Contraseña" type="password" placeholder="Ingresa tu contraseña" />);
+    
+    // Buscar por placeholder o selector
+    const input = screen.getByPlaceholderText(/ingresa tu contraseña/i);
+    
+    expect(input).toBeTruthy();
+    expect(input.getAttribute('type')).toBe('password');
+});
 
     it('debe usar type text por defecto', () => {
         render(<Formulario subtitulo="Campo" />);
